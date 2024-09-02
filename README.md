@@ -18,7 +18,6 @@ Design of Caeser Cipher algorithnm
 Implementation using C or pyhton code
 
 ### Step 3:
-
 1.	In Ceaser Cipher each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet.
 2.	For example, with a left shift of 3, D would be replaced by A, E would become B, and so on.
 3.	The encryption can also be represented using modular arithmetic by first transforming the letters into numbers, according to the   
@@ -35,26 +34,21 @@ CaearCipher.
 ```
 #include <stdio.h>
 #include <ctype.h>
-
 void caesarCipher(char* text, int shift) {
     char ch;
-    int i = 0;
-    
+    int i = 0;  
     // Loop through each character in the text
     while (text[i] != '\0') {
-        ch = text[i];
-        
+        ch = text[i];   
         // Check if the character is an alphabet
         if (isalpha(ch)) {
             // Calculate the shift for lowercase or uppercase
             char base = islower(ch) ? 'a' : 'A';
             text[i] = (ch - base + shift) % 26 + base;
-        }
-        
+        } 
         i++;
     }
 }
-
 int main() {
     char text[100];
     int shift;
